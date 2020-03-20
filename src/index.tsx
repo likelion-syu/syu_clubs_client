@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
 
+import App from './App';
 import MainScene from './scenes/MainScene';
+import { BrowserRouter, BrowserRouter as Router, Route } from 'react-router-dom';
 
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
@@ -16,7 +17,12 @@ const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(Thunk
 
 ReactDOM.render(
   <Provider store={store}>
-    <MainScene />
+    <BrowserRouter>
+    <Router>
+      <Route exact path="/" component={MainScene}/>
+      <Route path="/second" component={App}/>
+      </Router>
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );

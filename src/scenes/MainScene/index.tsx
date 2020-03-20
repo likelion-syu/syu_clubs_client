@@ -5,6 +5,7 @@ import BaseComponent from '../../components/Base';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { getClubsThunk } from '../../store/clubs';
+import { Link } from 'react-router-dom';
 
 // import axios from 'axios';
 
@@ -28,7 +29,7 @@ import { getClubsThunk } from '../../store/clubs';
 //     club_type: object;
 // }
 
-const MainScene = () => {
+const MainScene: React.FC = () => {
     const { data } = useSelector((state: RootState) => state.clubs.clubData);
     const dispatch = useDispatch();
     // const [items, setItems] = useState<IClubs[]>([]);
@@ -64,6 +65,7 @@ const MainScene = () => {
                     })
                 }
             </div>
+            <Link to='/second'>second</Link>
             <Footer />
         </>
     );
