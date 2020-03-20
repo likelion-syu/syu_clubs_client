@@ -8,6 +8,6 @@ export type ClubsState = {
     clubData: {
         loading: boolean;
         error: Error | null;
-        data: Clubs | null;
+        data: Clubs[] | null;
     };
 };

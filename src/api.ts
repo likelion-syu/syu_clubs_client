@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export async function getClubs(id: string) {
-    const response = await axios.get<Clubs>('http://127.0.0.1:8000/api/clubs/'+id);
+export async function getClubs() {
+    const response = await axios.get('http://127.0.0.1:8000/api/clubs/');
     return response.data;
 }
 

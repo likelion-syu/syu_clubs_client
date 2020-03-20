@@ -9,8 +9,8 @@ function ClubLoader() {
   const { data, loading, error } = useSelector((state: RootState) => state.clubs.clubData);
   const dispatch = useDispatch();
 
-  const onSubmitUsername = (id: string) => {
-    dispatch(getClubsThunk(id));
+  const onSubmitUsername = () => {
+    dispatch(getClubsThunk());
   };
 
   return (
@@ -18,7 +18,7 @@ function ClubLoader() {
       <ClubIdForm onSubmitUsername={onSubmitUsername} />
       {loading && <p style={{ textAlign: 'center' }}>로딩중..</p>}
       {error && <p style={{ textAlign: 'center' }}>에러 발생!</p>}
-      {data && <ClubInfo introduce={data.club_introduce} name={data.club_name} created_at={data.created_at} />}
+      {data && <ClubInfo introduce={data[0].club_introduce} name={data[0].club_name} created_at={data[0].created_at} />}
     </>
   );
 }
