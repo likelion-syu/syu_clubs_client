@@ -3,7 +3,7 @@ import React from 'react';
 type ClubInfoProps = {
   name: string;
   introduce: string;
-  created_at: Date;
+  created_at: number;
 };
 
 function ClubInfo({ name, introduce, created_at }: ClubInfoProps) {

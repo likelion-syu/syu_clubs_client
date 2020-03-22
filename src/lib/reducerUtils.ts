@@ -12,33 +12,34 @@ export const asyncState = {
     initial: <T, E = any>(initialData?: T): AsyncState<T, E> => ({
         loading: false,
         data: initialData || null,
-        error: null
+        error: null,
     }),
     load: <T, E = any>(data?: T): AsyncState<T, E> => ({
         loading: true,
         data: data || null,
-        error: null
+        error: null,
     }),
     success: <T, E = any>(data: T): AsyncState<T, E> => ({
         loading: false,
         data,
-        error: null
+        error: null,
     }),
     error: <T, E>(error: E): AsyncState<T, E> => ({
         loading: false,
         data: null,
-        error: error
-    })
+        error: error,
+    }),
 };
-
 
 type AnyAsyncActionCreator = AsyncActionCreatorBuilder<any, any, any>;
 
-export function createAsyncReducer<S, AC extends AnyAsyncActionCreator, K extends keyof S>(
-    asyncActionCreator: AC,
-    key: K
-) {
+export function createAsyncReducer<
+    S,
+    AC extends AnyAsyncActionCreator,
+    K extends keyof S
+>(asyncActionCreator: AC, key: K) {
     return (state: S, action: AnyAction) => {
+        console.log(state);
         const [request, success, failure] = [
             asyncActionCreator.request,
             asyncActionCreator.success,
@@ -48,25 +49,27 @@ export function createAsyncReducer<S, AC extends AnyAsyncActionCreator, K extend
             case request:
                 return {
                     ...state,
-                    [key]: asyncState.load()
+                    [key]: asyncState.load(),
                 };
             case success:
                 return {
                     ...state,
-                    [key]: asyncState.success(action.payload)
+                    [key]: asyncState.success(action.payload),
                 };
             case failure:
                 return {
                     ...state,
-                    [key]: asyncState.error(action.payload)
+                    [key]: asyncState.error(action.payload),
                 };
             default:
-                return state
+                return state;
         }
     };
 }
 
-export function transformToArray<AC extends AnyAsyncActionCreator>(asyncActionCreator: AC) {
+export function transformToArray<AC extends AnyAsyncActionCreator>(
+    asyncActionCreator: AC,
+) {
     const { request, success, failure } = asyncActionCreator;
     return [request, success, failure];
 }
