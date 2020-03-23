@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import BaseComponent from '../../components/Base';
+import NavToTop from '../../components/NavToTop';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { getClubsThunk } from '../../store/clubs';
@@ -47,9 +49,8 @@ const MainScene: React.FC = () => {
     useEffect(() => {
         dispatch(getClubsThunk());
     }, [dispatch]);
-    console.log(data);
     return (
-        <>
+        <div className="content-container">
             <BaseComponent />
             <Header />
             <p>Hello</p>
@@ -66,8 +67,9 @@ const MainScene: React.FC = () => {
                 }
             </div>
             <Link to='/second'>second</Link>
+            <NavToTop />
             <Footer />
-        </>
+        </div>
     );
 }
 

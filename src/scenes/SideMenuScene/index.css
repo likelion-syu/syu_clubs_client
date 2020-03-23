@@ -1,0 +1,9 @@
+.container {
+    left:-100%;
+    transition:.3s;
+}
+
+.container.open{
+    left:0;
+    transition:.3s;
+}
