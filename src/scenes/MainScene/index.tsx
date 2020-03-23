@@ -47,9 +47,8 @@ const MainScene: React.FC = () => {
     useEffect(() => {
         dispatch(getClubsThunk());
     }, [dispatch]);
-    console.log(data);
     return (
-        <>
+        <div className="content-container">
             <BaseComponent />
             <Header />
             <p>Hello</p>
@@ -67,7 +66,7 @@ const MainScene: React.FC = () => {
             </div>
             <Link to='/second'>second</Link>
             <Footer />
-        </>
+        </div>
     );
 }
 
