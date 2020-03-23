@@ -32,15 +32,14 @@ const Header = () => {
     }
 
     useEffect(() => {
-        window.onscroll = (ev:Event)=>{
+        window.addEventListener('scroll',  (ev:Event)=>{
             if(window.pageYOffset > 30){
                 setNavTransparent(false);
             }
             else{
                 setNavTransparent(true);
             }
-        }
-        
+        });
     }, []);
 
     return (
