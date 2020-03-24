@@ -1,19 +1,20 @@
 import { createReducer } from 'typesafe-actions';
-import { ClubsState, ClubsAction } from './types';
-import { getClubsAsync } from './actions';
+import { ClubsListState, ClubsAction } from './types';
+import { getClubsListAsync } from './actions';
 import {
     asyncState,
     createAsyncReducer,
     transformToArray,
-} from '../../lib/reducerUtils';
+} from '../lib/reducerUtils';
+import { combineReducers } from 'redux';
 
-const initialState: ClubsState = {
-    clubData: asyncState.initial(),
-};
-
-const clubs = createReducer<ClubsState, ClubsAction>(initialState).handleAction(
-    transformToArray(getClubsAsync),
-    createAsyncReducer(getClubsAsync, 'clubData'),
+const ClubList = createReducer<ClubsListState, ClubsAction>({
+    list: asyncState.initial(),
+}).handleAction(
+    transformToArray(getClubsListAsync),
+    createAsyncReducer(getClubsListAsync, "list"),
 );
 
-export default clubs;
+export default combineReducers({
+    ClubList
+});

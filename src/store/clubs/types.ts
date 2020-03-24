@@ -1,33 +1,13 @@
 import * as actions from './actions';
 import { ActionType } from 'typesafe-actions';
-import { Clubs } from '../../api';
-import { AsyncState } from '../../lib/reducerUtils';
+
+import { IClub } from './interfaces';
+import { AsyncState } from '../lib/reducerUtils';
+
 export type ClubsAction = ActionType<typeof actions>;
 
-export type ClubsState = {
-    clubData: AsyncState<Clubs[], Error>;
+export type ClubsListState = {
+    list : AsyncState<IClub[], Error>
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// export type ClubsAction = ActionType<typeof actions>;
-
-// export type ClubsState = {
-//     clubData: {
-//         loading: boolean;
-//         error: Error | null;
-//         data: Clubs[] | null;
-//     };
-// };
+// NOTICE : 새로운 기능이 추가될 경우 이쪽에 state 내용을 추가로 선언할 것

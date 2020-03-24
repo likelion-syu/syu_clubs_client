@@ -8,21 +8,21 @@ import { PostData } from '../api';
 
 function ClubLoader() {
 
-  const { data, loading, error } = useSelector((state: RootState) => state.post.postData);
-  const dispatch = useDispatch();
+  // const { data, loading, error } = useSelector((state: RootState) => state.post.postData);
+  // const dispatch = useDispatch();
 
 
 
-  const onSubmitPostData = (postData :PostData) => {
-    dispatch(postPostThunk(postData));
-  }
+  // const onSubmitPostData = (postData :PostData) => {
+  //   dispatch(postPostThunk(postData));
+  // }
 
   return (
     <>
-      <ClubIdForm onSubmitUsername={onSubmitPostData} />
+      {/* <ClubIdForm onSubmitUsername={onSubmitPostData} />
       {loading && <p style={{ textAlign: 'center' }}>로딩중..</p>}
       {error && <p style={{ textAlign: 'center' }}>에러 발생!</p>}
-      {data && <ClubInfo introduce={data.post_title} name={data.post_content} created_at={data.post_id} />}
+      {data && <ClubInfo introduce={data.post_title} name={data.post_content} created_at={data.post_id} />} */}
     </>
   );
 }

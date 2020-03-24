@@ -1,5 +1,9 @@
-import { getClubs } from '../../api';
-import { getClubsAsync } from './actions';
-import createAsyncThunk from '../../lib/createAsyncThunk';
+import { ClubsAPI } from '../../db/';
+import { getClubsListAsync } from './actions';
+import createAsyncThunk from '../lib/createAsyncThunk';
 
-export const getClubsThunk = createAsyncThunk(getClubsAsync, getClubs);
+const getClubsListThunk = createAsyncThunk(getClubsListAsync, ClubsAPI.getList);
+
+export {
+    getClubsListThunk
+};

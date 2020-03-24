@@ -1,19 +1,28 @@
 import { createReducer } from 'typesafe-actions';
-import { PostState, PostAction } from './types';
-import { postPostAsync } from './actions';
+import { PostState, PostAction, PostListState } from './types';
+import { postPostAsync, getPostListAsync } from './actions';
 import {
     asyncState,
     createAsyncReducer,
     transformToArray,
-} from '../../lib/reducerUtils';
+} from '../lib/reducerUtils';
+import { combineReducers } from 'redux';
 
-const initialState: PostState = {
+const PostReducer = createReducer<PostState, PostAction>({
     postData: asyncState.initial(),
-};
-
-const post = createReducer<PostState, PostAction>(initialState).handleAction(
+}).handleAction(
     transformToArray(postPostAsync),
     createAsyncReducer(postPostAsync, 'postData'),
 );
 
-export default post;
+const PostList = createReducer<PostListState, PostAction>({
+    list: asyncState.initial(),
+}).handleAction(
+    transformToArray(getPostListAsync),
+    createAsyncReducer(getPostListAsync, 'list'),
+);
+
+export default combineReducers({
+    post: PostReducer,
+    PostList,
+});

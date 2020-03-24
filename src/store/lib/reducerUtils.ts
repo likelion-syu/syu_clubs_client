@@ -39,7 +39,6 @@ export function createAsyncReducer<
     K extends keyof S
 >(asyncActionCreator: AC, key: K) {
     return (state: S, action: AnyAction) => {
-        console.log(state);
         const [request, success, failure] = [
             asyncActionCreator.request,
             asyncActionCreator.success,
