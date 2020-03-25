@@ -18,7 +18,11 @@ const index = () => {
 
     const fn = {
         goToTop : ()=>{
-            window.scrollTo(0,0);
+            // window.scrollTo(0,0);
+            const body = window.document.querySelector('body');
+            if(body !== null){
+                body.scrollIntoView({behavior: 'smooth'});
+            }
         }
     }
 
@@ -59,6 +63,10 @@ const styles: { [name: string]: React.CSSProperties } = {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
+    },
+    btn : {
+        fontSize: '.9em',
+        lineHeight:'.9em',
     }
 }
 

@@ -1,10 +1,10 @@
 .nav-to-top{
     box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.5);
     opacity:1;
-    transition: .2s;
+    transition: .1s;
 }
 .nav-to-top.transparent{
     box-shadow: none;
     opacity:0;
-    transition: .2s;
+    transition: .1s;
 }
