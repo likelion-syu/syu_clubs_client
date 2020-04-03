@@ -13,3 +13,10 @@
     box-shadow: none;
     background-color: rgba(0,0,0,0);
 }
+
+.nav.transparent svg{
+    color : #fff;
+}
+.nav svg{
+    color : #309b5b;
+}

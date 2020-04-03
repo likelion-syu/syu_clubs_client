@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useState } from 'react';
 import { IoIosArrowUp } from 'react-icons/io';
+
 import './index.css';
 
 const index = () => {

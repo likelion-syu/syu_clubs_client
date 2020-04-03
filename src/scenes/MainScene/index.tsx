@@ -14,6 +14,9 @@ import { getClubsListThunk } from '../../store/clubs';
 // React Router
 import { Link } from 'react-router-dom';
 
+import SearchBar from './SearchBar';
+import spacing from '../../components/Base/spacing';
+
 // TODO 
 // 1. 가장 최근 동아리 활동 포스트
 // 2. 다가오는 내 관심 동아리 일정 
@@ -47,22 +50,12 @@ return (
     <div className="content-container">
         <BaseComponent />
         <Header />
-        <p>Hello</p>
-        <div>
-            {
-                list.data && list.data.map((item, idx) => {
-                    return (
-                        <div key={idx.toString()}>
-                            <img alt={item.club_name} style={styles.img} src={item.club_img_url}></img>
-                            <p>{item.club_name}</p>
-                        </div>
-                    );
-                })
-            }
+        <SearchBar />
+        <div style={styles.contentContainer}>
+
         </div>
-        <Link to='/second'>second</Link>
         <NavToTop />
-        <Footer />
+        {/* <Footer /> */}
     </div>
 );
 }
@@ -71,6 +64,21 @@ const styles: { [name: string]: React.CSSProperties } = {
     img: {
         width: '50px',
         // height: '50px',
+    },
+    container : {
+        backgroundColor: "#eee",
+        width: '100%',
+        minHeight : '100%',
+    },
+    contentContainer:{
+        width: '100%',
+        height : '1000px',
+        position:'absolute',
+        marginTop:'300px',
+        backgroundColor:'#fff',
+        zIndex:spacing.zIndex.content,
+        borderTopLeftRadius:'20px',
+        borderTopRightRadius:'20px',
     }
 }
 

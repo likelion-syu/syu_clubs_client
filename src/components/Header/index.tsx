@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { IoIosMenu, IoIosNotifications } from "react-icons/io";
 import './header.css';
+import spacing from '../../components/Base/spacing';
 
 import SideMenuScene from '../../scenes/SideMenuScene';
 // https://gist.github.com/andjosh/6764939
@@ -68,6 +69,7 @@ const styles: { [name: string]: React.CSSProperties } = {
         display: "flex",
         flexDirection: "row",
         justifyContent: 'space-between',
+        zIndex:spacing.zIndex.nav,
     },
     logo: {
         padding: 0,
