@@ -9,10 +9,10 @@ import {
 import { combineReducers } from 'redux';
 
 const PostReducer = createReducer<PostState, PostAction>({
-    postData: asyncState.initial(),
+    dispatch: asyncState.initial(),
 }).handleAction(
     transformToArray(postPostAsync),
-    createAsyncReducer(postPostAsync, 'postData'),
+    createAsyncReducer(postPostAsync, 'dispatch'),
 );
 
 const PostList = createReducer<PostListState, PostAction>({
@@ -24,5 +24,5 @@ const PostList = createReducer<PostListState, PostAction>({
 
 export default combineReducers({
     post: PostReducer,
-    PostList,
+    get: PostList,
 });

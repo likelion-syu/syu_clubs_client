@@ -1,5 +1,7 @@
+
 .content-container {
     padding-top: 56px;
+    background-color: #f6f6f6;
 }
 
 .nav {
@@ -12,4 +14,27 @@
     transition: .2s;
     box-shadow: none;
     background-color: rgba(0,0,0,0);
+}
+
+.newButton {
+    background-image:url(../../assets/img/메뉴\ 아이콘.png);
+    background-repeat: no-repeat;
+    height:30px;
+    width: 30px;
+    margin: 19.25px;
+}
+
+.nav .text {
+    font-weight: bold;
+    /* font-family: NanumSquareRoundEB; */
+    font-size: 21px;
+    /* font-weight: normal; */
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.14;
+    letter-spacing: normal;
+    text-align: left;
+    color: #904e87;
+    display:flex;
+    align-self: center;
 }

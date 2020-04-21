@@ -6,7 +6,7 @@ import { AsyncState } from '../lib/reducerUtils';
 export type PostAction = ActionType<typeof actions>;
 
 export type PostState = {
-    postData: AsyncState<IPost, Error>;
+    dispatch: AsyncState<IPost, Error>;
 }
 
 export type PostListState = {

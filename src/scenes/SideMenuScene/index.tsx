@@ -1,6 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useState } from 'react';
 import './index.css';
+import { Link } from 'react-router-dom';
+
 
 const index = (props: any) => {
     const ui = {
@@ -20,7 +22,8 @@ const index = (props: any) => {
     return (
         <div style={styles.container} className={ui.getVisibility()} >
             <button onClick={ ui.close }>close</button>
-            
+            <Link to='/club_list'>club list</Link>
+
         </div>
     );
 };

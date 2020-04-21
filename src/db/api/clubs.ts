@@ -6,7 +6,7 @@ const host = process.env.REACT_APP_DB_HOST;
 // 목록을 조회 함, 검색을 해야되는 경우 options를 받아서 처리하도록 함
 const getList = async (options?: IClubListOption): Promise<IClub[]> => {
     console.log('[API/CLUBS] get list requested');
-    const response = await axios.get(host + '/api/clubs');
+    const response = await axios.get(host + '/api/clubs/list/');
     return response.data;
 };
 
@@ -26,6 +26,8 @@ const getFavList = async (): Promise<IClub[]> => {
     const response = await axios.get(host + '/api/clubs');
     return response.data;
 };
+
+
 
 export default {
     getList,

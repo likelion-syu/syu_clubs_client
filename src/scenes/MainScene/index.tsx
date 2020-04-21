@@ -10,6 +10,8 @@ import NavToTop from '../../components/NavToTop';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { getClubsListThunk } from '../../store/clubs';
+import { getEventsThunk } from '../../store/events';
+import { getPostListThunk } from '../../store/posts';
 
 // React Router
 import { Link } from 'react-router-dom';
@@ -24,20 +26,21 @@ import { Link } from 'react-router-dom';
 
 const MainScene: React.FC = () => {
     const list = {
-        ...useSelector((state: RootState) => state.clubs.ClubList.list)
+        ...useSelector((state: RootState) => state.clubs.get.list)
     }
 
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getClubsListThunk());
+        dispatch(getEventsThunk());
+        dispatch(getPostListThunk());
     }, [dispatch]);
-
     useEffect(()=>{
         // 로딩 인디케이터 
         console.log(list.loading);
     }, [list.loading]);
-
+    
     useEffect(()=>{
         if(list.data !== null){
             console.log(list.data[0].club_name);
@@ -48,6 +51,7 @@ return (
         <BaseComponent />
         <Header />
         <p>Hello</p>
+        <a href="http://127.0.0.1:8000/accounts/google/login/?process=login">로그인</a>
         <div>
             {
                 list.data && list.data.map((item, idx) => {

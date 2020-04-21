@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Children } from 'react';
 import { IoIosMenu, IoIosNotifications } from "react-icons/io";
 import './header.css';
 
@@ -6,7 +6,7 @@ import SideMenuScene from '../../scenes/SideMenuScene';
 // https://gist.github.com/andjosh/6764939
 // 스크롤 애니메이션
 
-const Header = () => {
+const Header = (props:any) => {
     const [menuVisibility, setMenuVisibility] = useState(false);
     const [navTransparent , setNavTransparent] = useState(true);
     const ui = {
@@ -45,12 +45,15 @@ const Header = () => {
     return (
         <>
             <nav style={styles.container} className={ui.nav.class()}>
-                <button style={styles.collapse} onClick={ui.menu.open}>
+                {/* <button style={styles.collapse} onClick={ui.menu.open}>
                     <IoIosMenu style={styles.icon} />
-                </button>
-                <button style={styles.collapseBtn}>
+                </button> */}
+                <div className="newButton" onClick={ui.menu.open}></div>
+                <div className="text">{props.children}</div>
+                {/* <button style={styles.collapseBtn}>
                     <IoIosNotifications style={styles.icon} />
-                </button>
+                </button> */}
+                <div style={styles.space}></div>
             </nav>
             <SideMenuScene visibility={menuVisibility} close={ui.menu.close} />
         </>);
@@ -69,6 +72,9 @@ const styles: { [name: string]: React.CSSProperties } = {
         flexDirection: "row",
         justifyContent: 'space-between',
     },
+    space: {
+        padding: 30,
+    },
     logo: {
         padding: 0,
         margin: 0,
@@ -80,7 +86,7 @@ const styles: { [name: string]: React.CSSProperties } = {
 
     },
     collapse: {
-
+        display: 'inline',
     },
     icon: {
         fontSize: '1.8em',

@@ -4,6 +4,7 @@ import './index.css';
 
 import App from './App';
 import MainScene from './scenes/MainScene';
+import ClubListScene from './scenes/ClubListScene'
 import { BrowserRouter, BrowserRouter as Router, Route } from 'react-router-dom';
 
 import * as serviceWorker from './serviceWorker';
@@ -21,6 +22,7 @@ ReactDOM.render(
     <Router>
       <Route exact path="/" component={MainScene}/>
       <Route path="/second" component={App}/>
+      <Route path="/club_list" component={ClubListScene}/>
       </Router>
     </BrowserRouter>
   </Provider>,
