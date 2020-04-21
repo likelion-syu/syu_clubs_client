@@ -1,12 +1,15 @@
 import React from 'react';
 import { IoMdSearch } from 'react-icons/io';
 import spacing from '../../../components/Base/spacing';
-
+import logo from './logo.svg';
 
 const index = () => {
     return (
         <div id="search-bar" style={ styles.container }>
             <div className="header-title" style={styles.headerTitle}>
+                <div style={styles.logoContainer} >
+                    <img src={logo} style={styles.logo}/>   
+                </div>
                 <h2 style={ styles.headerTitleText }>동아리에 대해 물어보세요!</h2>
                 <p style={ styles.headerTitleDesc }>삼육대 동아리들의 일정, 활동에 대해 알아보세요</p>
             </div>
@@ -24,19 +27,28 @@ const styles: { [name:string]: React.CSSProperties } = {
     container : {
         backgroundColor: "#309b5b",
         width:'100%',
-        height : "500px",
+        minHeight : "500px",
         marginTop : '-56px',
-        // flex: 1,
         flexDirection : 'column',
-        padding: '56px 0',
+        paddingTop:'25px',
         alignContent:'center',
         display:'flex',
         position:'fixed',
         zIndex:spacing.zIndex.default,
     },
+    logo : {
+        width : '90px',
+        height:'90px',
+    },
+    logoContainer: {
+        width : '100%',
+        display:'flex',
+        justifyContent:'center',
+        marginBottom : '25px'
+    },
     headerTitle : {
         width: '100%',
-        padding: '55px 0',
+        padding: '40px 0',
     },
     headerTitleText : {
         color:'#fff',
@@ -54,19 +66,25 @@ const styles: { [name:string]: React.CSSProperties } = {
         fontSize: '1.3em',
         fontWeight: 'bold',
         color: "#309b5b",
+        margin:0,
+        padding:0,
+        border:0,
     },
     searchBtn:{
         color:'#309b5b',
         fontSize:'1.5em',
         display:'flex',
         padding : 0,
+        margin:0,
+        background:'none',
+        border:0,
     },
     searchInputContainer:{
         display:'flex',
         justifyContent:'center',
-        width : '70%',
+        // width : '70%',
         borderRadius:'10px',
-        padding: '7px 10px',
+        padding: '7px 15px',
         border:0,
         backgroundColor:'#fff',
         boxShadow:'2px 2px rgba(0,0,0,.3)',

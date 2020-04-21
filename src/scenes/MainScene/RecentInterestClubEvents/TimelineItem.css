@@ -1,0 +1,36 @@
+.timeline-date-container::before {
+    border-right : 4px solid #eee;
+    content: "";
+    height : 100%;
+    position: absolute;
+    top:0;
+    left : 25px;
+}
+.timeline-date-container::after{
+    content : "";
+    width : 10px;
+    height : 10px;
+    border-radius: 50%;
+    border: 3px solid rgb(48, 155, 91);
+    background-color: #fff;
+    position: absolute;
+    left:25px;
+    margin-left: -6px;
+    top: 25px;
+}
+
+.timeline-date{
+    font-weight: 800;
+    font-size: .8em;
+    padding-left : 30px;
+    color:#6d6d6d;
+    padding-top: 10px;
+}
+
+.timeline-date-container.today::after{
+    background-color: #f9ee80;
+}
+
+.timeline-date-container.today .timeline-date{
+    color:rgb(48, 155, 91);
+}

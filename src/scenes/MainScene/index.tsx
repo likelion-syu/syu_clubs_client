@@ -5,6 +5,8 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import BaseComponent from '../../components/Base';
 import NavToTop from '../../components/NavToTop';
+import { IoIosArrowUp } from "react-icons/io";
+import './index.css';
 
 // 데이터를 가져오는데 필요한 요소
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,7 +17,11 @@ import { getClubsListThunk } from '../../store/clubs';
 import { Link } from 'react-router-dom';
 
 import SearchBar from './SearchBar';
+import RecentInterestClubPosts from './RecentInterestClubPosts';
+import RecentInterestClubEvents from './RecentInterestClubEvents';
+import RecentInterestClubNotices from './RecentInterestClubNotices';
 import spacing from '../../components/Base/spacing';
+
 
 // TODO 
 // 1. 가장 최근 동아리 활동 포스트
@@ -52,9 +58,14 @@ return (
         <Header />
         <SearchBar />
         <div style={styles.contentContainer}>
-
+            <div className="" style={styles.guide}>
+                <IoIosArrowUp className="shake-vertical" style={ styles.guideIcon }/>
+            </div>
+            <RecentInterestClubNotices/>
+            <RecentInterestClubEvents/>
+            <RecentInterestClubPosts />
         </div>
-        <NavToTop />
+        {/* <NavToTop /> */}
         {/* <Footer /> */}
     </div>
 );
@@ -68,17 +79,28 @@ const styles: { [name: string]: React.CSSProperties } = {
     container : {
         backgroundColor: "#eee",
         width: '100%',
-        minHeight : '100%',
+        // minHeight : '100%',
     },
     contentContainer:{
         width: '100%',
-        height : '1000px',
+        // minHeight : '1000px',
         position:'absolute',
         marginTop:'300px',
         backgroundColor:'#fff',
         zIndex:spacing.zIndex.content,
         borderTopLeftRadius:'20px',
         borderTopRightRadius:'20px',
+        paddingBottom : '50px',
+    },
+    guide: {
+        width:'100%',
+        display:'flex',
+        justifyContent:'center',
+        paddingTop:'20px',
+    },
+    guideIcon : {
+        color : "rgb(48, 155, 91)",
+        fontSize : '1em'
     }
 }
 
